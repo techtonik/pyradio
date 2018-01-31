@@ -20,8 +20,8 @@ parts:
     plugin: python
     stage-packages:
         - mplayer
-        - vlc
         - libpulse0
         - samba-libs
     organize:
-      usr/lib/$SNAPCRAFT_ARCH_TRIPLET/samba/*: usr/lib/$SNAPCRAFT_ARCH_TRIPLET/
+      usr/lib/*/samba/*: usr/lib/
+      usr/lib/*/pulseaudio/*: usr/lib
