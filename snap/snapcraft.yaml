@@ -22,6 +22,7 @@ parts:
         - mplayer
         - libpulse0
         - samba-libs
+        - libgpm2
     organize:
       usr/lib/*/samba/*: usr/lib/
       usr/lib/*/pulseaudio/*: usr/lib
