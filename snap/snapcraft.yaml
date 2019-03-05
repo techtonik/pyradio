@@ -1,5 +1,5 @@
 name: pyradio
-version: '1.3.2'
+adopt-info: pyradio
 summary: Command line internet radio player.
 description: |
   Command line internet radio player.
@@ -26,3 +26,16 @@ parts:
     organize:
       usr/lib/*/samba/*: usr/lib/
       usr/lib/*/pulseaudio/*: usr/lib
+    override-pull: |
+      snapcraftctl pull
+      last_committed_tag="$(git describe --tags --abbrev=0)"
+      last_released_tag="$(snap info $SNAPCRAFT_PROJECT_NAME | awk '$1 == "beta:" { print $2 }')"
+      # If the latest tag from the upstream project has not been released to
+      # beta, build that tag instead of master.
+      if [ "${last_committed_tag}" != "${last_released_tag}" ]; then
+        git fetch
+        git checkout "${last_committed_tag}"
+        snapcraftctl set-version "${last_committed_tag#v}"
+      else
+        snapcraftctl set-version "$(git rev-parse --short HEAD)"
+      fi
