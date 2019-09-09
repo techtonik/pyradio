@@ -3,7 +3,7 @@ adopt-info: pyradio
 summary: Command line internet radio player.
 description: |
   Command line internet radio player.
-
+base: core18
 grade: stable
 confinement: strict
 
