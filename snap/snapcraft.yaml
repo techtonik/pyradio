@@ -10,9 +10,10 @@ confinement: strict
 apps:
   pyradio:
     command: pyradio
-    plugs: [network, pulseaudio, x11]
+    plugs: [network, pulseaudio, x11, network-bind]
     environment:
        LC_ALL: C.UTF-8
+       LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/samba:$LD_LIBRARY_PATH"
 
 parts:
   pyradio:
@@ -23,9 +24,9 @@ parts:
         - libpulse0
         - samba-libs
         - libgpm2
-    organize:
-      usr/lib/*/samba/*: usr/lib/
-      usr/lib/*/pulseaudio/*: usr/lib
+        - libglu1-mesa
+        - freeglut3
+        - libslang2
     override-pull: |
       snapcraftctl pull
       last_committed_tag="$(git describe --tags --abbrev=0)"
