@@ -19,6 +19,9 @@ parts:
   pyradio:
     source: https://github.com/coderholic/pyradio.git
     plugin: python
+    python-packages:
+        - dnspython
+        - requests
     stage-packages:
         - mplayer
         - libpulse0
