@@ -21,6 +21,7 @@ parts:
     plugin: python
     python-packages:
         - dnspython
+        - psutil
         - requests
     stage-packages:
         - mplayer
