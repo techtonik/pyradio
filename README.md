@@ -4,7 +4,7 @@
   Pyradio
 </h1>
 
-<p align="center"><b>This is the snap for pyradio, a command line internet radio player.</b>.</p>
+<p align="center"><b>This is the snap for pyradio, a command line internet radio player.</b></p>
 <p align="center"> Pyradio is a command line internet radio player.</p>
 
 <p align="center">
