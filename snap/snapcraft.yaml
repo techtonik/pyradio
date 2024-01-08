@@ -1,11 +1,22 @@
 name: pyradio
-adopt-info: pyradio
 summary: Command line internet radio player.
 description: |
   Command line internet radio player.
+  **Authors**
+
+  This snap is maintained by the Snapcrafters community, and is not necessarily endorsed or officially maintained by the upstream developers.
+
 base: core18
 grade: stable
 confinement: strict
+
+website: https://github.com/coderholic/pyradio
+contact: https://github.com/snapcrafters/pyradio/issues
+issues: https://github.com/snapcrafters/pyradio/issues
+source-code: https://github.com//snapcrafters/pyradio
+license: MIT
+icon: snap/gui/snapcrafters_logo.png
+version: '0.9.2.22'
 
 apps:
   pyradio:
@@ -31,16 +42,3 @@ parts:
         - libglu1-mesa
         - freeglut3
         - libslang2
-    override-pull: |
-      snapcraftctl pull
-      last_committed_tag="$(git describe --tags --abbrev=0)"
-      last_released_tag="$(snap info $SNAPCRAFT_PROJECT_NAME | awk '$1 == "latest/beta:" { print $2 }')"
-      # If the latest tag from the upstream project has not been released to
-      # beta, build that tag instead of master.
-      if [ "${last_committed_tag}" != "${last_released_tag}" ]; then
-        git fetch
-        git checkout "${last_committed_tag}"
-        snapcraftctl set-version "${last_committed_tag#v}"
-      else
-        snapcraftctl set-version "$(git rev-parse --short HEAD)"
-      fi
