@@ -2,6 +2,7 @@ name: pyradio
 summary: Command line internet radio player.
 description: |
   Command line internet radio player.
+  
   **Authors**
 
   This snap is maintained by the Snapcrafters community, and is not necessarily endorsed or officially maintained by the upstream developers.
@@ -15,7 +16,6 @@ contact: https://github.com/snapcrafters/pyradio/issues
 issues: https://github.com/snapcrafters/pyradio/issues
 source-code: https://github.com//snapcrafters/pyradio
 license: MIT
-icon: snap/gui/snapcrafters_logo.png
 version: '0.9.2.22'
 
 architectures:
