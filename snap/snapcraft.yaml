@@ -7,7 +7,7 @@ description: |
 
   This snap is maintained by the Snapcrafters community, and is not necessarily endorsed or officially maintained by the upstream developers.
 
-base: core20
+base: core24
 grade: stable
 confinement: strict
 
@@ -26,16 +26,21 @@ architectures:
 apps:
   pyradio:
     command: bin/pyradio
-    plugs: [network, audio-playback, x11, network-bind]
+    plugs:
+        - network
+        - audio-playback
+        - x11
+        - network-bind
     environment:
        LC_ALL: C.UTF-8
        LD_LIBRARY_PATH: "$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/pulseaudio:$SNAP/usr/lib/$SNAPCRAFT_ARCH_TRIPLET/samba"
 
 parts:
   pyradio:
-    source: https://github.com/coderholic/pyradio.git
     plugin: python
+    source: https://github.com/coderholic/pyradio.git
     python-packages:
+        - rich
         - dnspython
         - psutil
         - requests
