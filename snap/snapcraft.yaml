@@ -18,11 +18,6 @@ source-code: https://github.com//snapcrafters/pyradio
 license: MIT
 version: '0.9.3.7'
 
-architectures:
-  - build-on: amd64
-  - build-on: arm64
-  - build-on: armhf
-
 apps:
   pyradio:
     command: bin/pyradio
